@@ -42,7 +42,7 @@ class Kmeans:
             if self.centroids[i] != centroid:
                 should_terminate = False
                 self.centroids[i] = centroid
-            print("finished with cluster ",i)
+            print("finished with cluster ", i)
         self.shouldTerminate = should_terminate
 
     def run(self):
@@ -53,7 +53,12 @@ class Kmeans:
                 rnd_centroid.append(rnd.random())
             self.centroids.append(rnd_centroid)
 
+        count = 0
         # start iterating
         while not self.shouldTerminate:
+            count += 1
             self.update_clusters()
+            print("updated cluster ", count, " times")
             self.update_centroids()
+            print("updated centroids ", count, " times")
+        print("finished")

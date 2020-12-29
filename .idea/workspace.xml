@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b71c5aa-fe3d-48f9-9229-b8cfc6256055" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Data-Science-Assignment-2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kmeans.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/t10k-images.idx3-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/t10k-labels.idx1-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train-images.idx3-ubyte" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train-labels.idx1-ubyte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kmeans.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +148,7 @@
       <updated>1609193305513</updated>
       <workItem from="1609193309141" duration="1346000" />
       <workItem from="1609227037882" duration="14970000" />
-      <workItem from="1609264474582" duration="7268000" />
+      <workItem from="1609264474582" duration="7507000" />
     </task>
     <servers />
   </component>
