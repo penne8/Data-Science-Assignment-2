@@ -37,9 +37,9 @@ cluster_identifier = np.argmax(popular, axis=1)
 numbers = []
 
 # normalize the data
-for i in range(len(trainImages)):
-    numbers.append(np.array(trainImages[i]).flatten())
-    for j in range(len(trainImages[i])):
+for i in range(len(t10kImages)):
+    numbers.append(np.array(t10kImages[i]).flatten())
+    for j in range(len(t10kImages[i])):
         numbers[i][j] /= 255
 test_data = np.array(numbers)
 data_size = test_data.shape[0]
@@ -51,15 +51,12 @@ for i in range(k):
 # find the index of the closest centroid cluster
 test_data_clustered = np.argmin(distances, axis=1)
 
+
 count = 0
-evaluation = np.zeros(data_size)
 for i in range(data_size):
-    evaluation[i] = cluster_identifier[trained_data_clustered[i]]
-    if evaluation[i] == test_data_clustered[i]:
+    if cluster_identifier[test_data_clustered[i]] == t10kLabels[i]:
         count += 1
 
-print("our percentage of true estimations: ", count/data_size)
+print("our percentage of true estimations: ", count/data_size * 100, "%")
 
 # E)
-
-

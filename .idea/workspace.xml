@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b71c5aa-fe3d-48f9-9229-b8cfc6256055" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Data-Science-Assignment-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data-Science-Assignment-2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kmeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -151,7 +148,7 @@
       <workItem from="1609193309141" duration="1346000" />
       <workItem from="1609227037882" duration="14970000" />
       <workItem from="1609264474582" duration="7507000" />
-      <workItem from="1609610449433" duration="14044000" />
+      <workItem from="1609610449433" duration="16805000" />
     </task>
     <servers />
   </component>
