@@ -1,64 +1,48 @@
-import random as rnd
 import numpy as np
 
-
+# A)
 class Kmeans:
+
     def __init__(self, k, vectors):
         self.k = k
         self.vectors = np.array(vectors)
-        self.vectorSize = self.vectors.shape[1]
-        self.centroids = []
+        self.vector_size = self.vectors.shape[1]
+        self.num_of_vectors = self.vectors.shape[0]
+        self.centroids = np.zeros(0)
         self.clusters = []
-        for i in range(self.k):
-            self.clusters.append(list())
-        self.shouldTerminate = False
+        self.should_terminate = False
 
     def update_clusters(self):
-        self.clusters = []
+
+        distances = np.zeros((self.num_of_vectors, self.k))
         for i in range(self.k):
-            self.clusters.append(list())
-        # for every vector
-        for i in range(self.vectors.shape[0]):
-            distances_from_centroids = []
-            # find the distances from every centroid
-            for j in range(self.k):
-                distances_from_centroids.append(np.linalg.norm(self.vectors[i] - self.centroids[j]))
-            # add the vector to the minimal centroid cluster
-            closest_centroid_id = distances_from_centroids.index(min(distances_from_centroids))
-            self.clusters[closest_centroid_id].append(self.vectors[i])
+            # find the distance of each vector to each centroid
+            distances[:, i] = np.linalg.norm(self.vectors - self.centroids[i], axis=1)
+        # find the index of the closest centroid cluster
+        self.clusters = np.argmin(distances, axis=1)
 
     def update_centroids(self):
-        should_terminate = True
+        new_centroids = np.zeros(self.centroids.shape)
+
         for i in range(self.k):
-            cluster_size = len(self.clusters[i])
-            centroid = []
-            for j in range(self.vectorSize):
-                centroid.append(0)
-            for vector in range(cluster_size):
-                for j in range(self.vectorSize):
-                    centroid[j] += self.clusters[i][vector][j]
-            for j in range(self.vectorSize):
-                centroid[j] /= cluster_size
-            if self.centroids[i] != centroid:
-                should_terminate = False
-                self.centroids[i] = centroid
-            print("finished with cluster ", i)
-        self.shouldTerminate = should_terminate
+            new_centroids[i] = np.mean(self.vectors[self.clusters == i], axis=0)
+
+        error = np.linalg.norm(new_centroids - self.centroids)
+        self.should_terminate = error == 0
+        self.centroids = new_centroids
 
     def run(self):
         # guess initial values
-        for i in range(self.k):
-            rnd_centroid = []
-            for j in range(self.vectorSize):
-                rnd_centroid.append(rnd.random())
-            self.centroids.append(rnd_centroid)
+        self.centroids = np.random.randn(self.k, self.vector_size)
 
         count = 0
         # start iterating
-        while not self.shouldTerminate:
+        while not self.should_terminate:
             count += 1
             self.update_clusters()
             print("updated cluster ", count, " times")
             self.update_centroids()
             print("updated centroids ", count, " times")
         print("finished")
+
+        return self.clusters, self.centroids
