@@ -3,12 +3,12 @@ import numpy as np
 # A)
 class Kmeans:
 
-    def __init__(self, k, vectors):
-        self.k = k
+    def __init__(self, initial_centroids, vectors):
+        self.k = initial_centroids.shape[0]
         self.vectors = np.array(vectors)
         self.vector_size = self.vectors.shape[1]
         self.num_of_vectors = self.vectors.shape[0]
-        self.centroids = np.zeros(0)
+        self.centroids = initial_centroids
         self.clusters = []
         self.should_terminate = False
 
@@ -32,17 +32,11 @@ class Kmeans:
         self.centroids = new_centroids
 
     def run(self):
-        # guess initial values
-        self.centroids = np.random.randn(self.k, self.vector_size)
-
         count = 0
         # start iterating
         while not self.should_terminate:
             count += 1
             self.update_clusters()
-            print("updated cluster ", count, " times")
             self.update_centroids()
-            print("updated centroids ", count, " times")
-        print("finished")
 
         return self.clusters, self.centroids

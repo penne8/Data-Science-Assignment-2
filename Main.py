@@ -1,5 +1,6 @@
+import classifier
 from Kmeans import Kmeans
-from loadMNIST_py import MnistDataloader
+from loadMNIST_py import MnistDataloader, show_images
 import numpy as np
 
 mnistDataLoader = MnistDataloader(
@@ -9,54 +10,37 @@ mnistDataLoader = MnistDataloader(
     't10k-labels.idx1-ubyte')
 (trainImages, trainLabels), (t10kImages, t10kLabels) = mnistDataLoader.load_data()
 
-# B)
-numbers = []
-k = 10
+print("1st run: ")
+initial_centroids = np.random.randn(10, 28*28)
+# classifier.run(initial_centroids, trainImages, trainLabels, t10kImages, t10kLabels)
 
+print("2nd run: ")
+# initial_centroids = np.random.randn(10, 28*28)
+# classifier.run(initial_centroids, trainImages, trainLabels, t10kImages, t10kLabels)
 
-# normalize the data
-for i in range(len(trainImages)):
-    numbers.append(np.array(trainImages[i]).flatten())
-    for j in range(len(trainImages[i])):
-        numbers[i][j] /= 255
-kmeans = Kmeans(k, numbers)
-trained_data_clustered, centroids = kmeans.run()
-data_size = trained_data_clustered.shape[0]
+print("3rd run: ")
+# initial_centroids = np.random.randn(10, 28*28)
+# initial_centroids = classifier.run(initial_centroids, trainImages, trainLabels, t10kImages, t10kLabels)
 
-# C)
+print("4th run with chosen initialized centroids: ")
+# F)
+initial_centroids[0] = np.array(trainImages[12542]).flatten()
+initial_centroids[1] = np.array(trainImages[11440]).flatten()
+initial_centroids[2] = np.array(trainImages[32606]).flatten()
+initial_centroids[3] = np.array(trainImages[37017]).flatten()
+initial_centroids[4] = np.array(trainImages[23623]).flatten()
+initial_centroids[5] = np.array(trainImages[33749]).flatten()
+initial_centroids[6] = np.array(trainImages[45127]).flatten()
+initial_centroids[7] = np.array(trainImages[40358]).flatten()
+initial_centroids[8] = np.array(trainImages[1236]).flatten()
+initial_centroids[9] = np.array(trainImages[29486]).flatten()
 
-cluster_identifier = np.zeros(k)
-popular = np.zeros((k,k))
-for i in range(data_size):
-    popular[trained_data_clustered[i]][trainLabels[i]] += 1
+# printing the centroids as images:
+centroids_show = []
+centroids_true_labels = []
+for i in range(0, 10):
+    centroids_show.append(initial_centroids[i].reshape(28, 28))
+    centroids_true_labels.append('centroid [' + str(i) + '] = represent cluster: ' + str(i))
+show_images(centroids_show, centroids_true_labels)
 
-cluster_identifier = np.argmax(popular, axis=1)
-
-# D)
-
-numbers = []
-
-# normalize the data
-for i in range(len(t10kImages)):
-    numbers.append(np.array(t10kImages[i]).flatten())
-    for j in range(len(t10kImages[i])):
-        numbers[i][j] /= 255
-test_data = np.array(numbers)
-data_size = test_data.shape[0]
-
-distances = np.zeros((data_size, k))
-for i in range(k):
-    # find the distance of each vector to each centroid
-    distances[:, i] = np.linalg.norm(test_data - centroids[i], axis=1)
-# find the index of the closest centroid cluster
-test_data_clustered = np.argmin(distances, axis=1)
-
-
-count = 0
-for i in range(data_size):
-    if cluster_identifier[test_data_clustered[i]] == t10kLabels[i]:
-        count += 1
-
-print("our percentage of true estimations: ", count/data_size * 100, "%")
-
-# E)
+classifier.run(initial_centroids, trainImages, trainLabels, t10kImages, t10kLabels)
