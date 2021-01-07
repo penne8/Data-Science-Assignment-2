@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b71c5aa-fe3d-48f9-9229-b8cfc6256055" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kmeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loadMNIST_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/loadMNIST_py.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
   </component>
   <component name="ReaderModeSettings">
     <option name="enabled" value="false" />
@@ -175,6 +176,7 @@
       <workItem from="1609264474582" duration="7507000" />
       <workItem from="1609610449433" duration="16805000" />
       <workItem from="1609933849026" duration="22896000" />
+      <workItem from="1610027342083" duration="4819000" />
     </task>
     <servers />
   </component>
@@ -201,6 +203,10 @@
       <screen x="-1600" y="0" width="1600" height="1150" />
     </state>
     <state width="641" height="466" key="DebuggerActiveHint/-1600.0.1600.1150/0.0.1536.824@-1600.0.1600.1150" timestamp="1609951608352" />
+    <state x="-1020" y="320" key="FileChooserDialogImpl" timestamp="1610031981077">
+      <screen x="-1600" y="0" width="1600" height="1150" />
+    </state>
+    <state x="-1020" y="320" key="FileChooserDialogImpl/-1600.0.1600.1150/0.0.1536.824@-1600.0.1600.1150" timestamp="1610031981077" />
     <state width="1557" height="384" key="GridCell.Tab.0.bottom" timestamp="1609957144473">
       <screen x="-1600" y="0" width="1600" height="1150" />
     </state>
@@ -252,13 +258,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/classifier.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

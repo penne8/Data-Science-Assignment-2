@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # A)
 class Kmeans:
 
@@ -38,5 +39,6 @@ class Kmeans:
             count += 1
             self.update_clusters()
             self.update_centroids()
+            print("finished ", count, " Iterations.")
 
         return self.clusters, self.centroids

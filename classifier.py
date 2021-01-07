@@ -1,11 +1,11 @@
-from Kmeans import Kmeans
 import numpy as np
+
+from Kmeans import Kmeans
+# normalize the data from [0-255] to [0-1]
+from loadMNIST_py import show_images
 
 
 # B)
-
-# normalize the data from [0-255] to [0-1]
-from loadMNIST_py import show_images
 
 
 def normalization(vectors):
@@ -48,10 +48,6 @@ def run(initial_centroids, trainImages, trainLabels, testImages, testLabels):
 
     # B+C)
     centroids, identifier = cluster_identifier(initial_centroids, trainImages, trainLabels)
-
-    # D)
-    classified = classify(centroids, testImages)
-
     # printing the centroids as images:
     centroids_show = []
     centroids_true_labels = []
@@ -59,10 +55,15 @@ def run(initial_centroids, trainImages, trainLabels, testImages, testLabels):
         centroids_show.append(centroids[i].reshape(28, 28))
         centroids_true_labels.append('centroid [' + str(i) + '] = represent cluster: ' + str(identifier[i]))
     show_images(centroids_show, centroids_true_labels)
+    print("the cluster identifier table for the current run: ")
+    print(identifier)
 
-    # E+F)
+    # D)
+    classified = classify(centroids, testImages)
+
+    # D+E+F)
     # an initialized centroid for the next run:
-    new_initial_centroids = np.zeros((initial_centroids.shape))
+    new_initial_centroids = np.zeros(initial_centroids.shape)
 
     # find our true estimations
     test_data_size = len(testImages)
@@ -71,5 +72,5 @@ def run(initial_centroids, trainImages, trainLabels, testImages, testLabels):
         if identifier[classified[i]] == testLabels[i]:
             new_initial_centroids[testLabels[i]] = np.array(testImages[i]).flatten()
             count += 1
-    print("our percentage of true estimations: ", count / test_data_size * 100, "%")
+    print("our percentage of true estimations:", count / test_data_size * 100, "%")
     return new_initial_centroids
