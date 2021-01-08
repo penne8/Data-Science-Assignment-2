@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b71c5aa-fe3d-48f9-9229-b8cfc6256055" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kmeans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loadMNIST_py.py" beforeDir="false" afterPath="$PROJECT_DIR$/loadMNIST_py.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +89,9 @@
       <module name="Data-Science-Assignment-2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -177,6 +177,8 @@
       <workItem from="1609610449433" duration="16805000" />
       <workItem from="1609933849026" duration="22896000" />
       <workItem from="1610027342083" duration="4819000" />
+      <workItem from="1610035288608" duration="623000" />
+      <workItem from="1610101458390" duration="663000" />
     </task>
     <servers />
   </component>

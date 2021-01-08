@@ -19,7 +19,7 @@ def normalization(vectors):
 
 # C)
 # find and return a cluster identifier
-def cluster_identifier(initial_centroids, trainImages, trainLabels):
+def cluster_classifier(initial_centroids, trainImages, trainLabels):
     trained_data_clustered, centroids = Kmeans(initial_centroids, normalization(trainImages)).run()
     data_size = trained_data_clustered.shape[0]
     k = initial_centroids.shape[0]
@@ -47,19 +47,20 @@ def run(initial_centroids, trainImages, trainLabels, testImages, testLabels):
     k = initial_centroids.shape[0]
 
     # B+C)
-    centroids, identifier = cluster_identifier(initial_centroids, trainImages, trainLabels)
+    centroids, classifier_table = cluster_classifier(initial_centroids, trainImages, trainLabels)
     # printing the centroids as images:
     centroids_show = []
     centroids_true_labels = []
     for i in range(0, 10):
         centroids_show.append(centroids[i].reshape(28, 28))
-        centroids_true_labels.append('centroid [' + str(i) + '] = represent cluster: ' + str(identifier[i]))
+        centroids_true_labels.append('centroid [' + str(i) + '] = represent cluster: ' + str(classifier_table[i]))
     show_images(centroids_show, centroids_true_labels)
-    print("the cluster identifier table for the current run: ")
-    print(identifier)
+
+    print("the cluster classifier table for the current run: ")
+    print(classifier_table)
 
     # D)
-    classified = classify(centroids, testImages)
+    test_images_classified = classify(centroids, testImages)
 
     # D+E+F)
     # an initialized centroid for the next run:
@@ -69,7 +70,7 @@ def run(initial_centroids, trainImages, trainLabels, testImages, testLabels):
     test_data_size = len(testImages)
     count = 0
     for i in range(test_data_size):
-        if identifier[classified[i]] == testLabels[i]:
+        if classifier_table[test_images_classified[i]] == testLabels[i]:
             new_initial_centroids[testLabels[i]] = np.array(testImages[i]).flatten()
             count += 1
     print("our percentage of true estimations:", count / test_data_size * 100, "%")
